@@ -1,7 +1,7 @@
 import express from "express";
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, existsSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import fetch from "node-fetch";
@@ -162,9 +162,7 @@ app.get("/health", (req, res) => {
 
 // ── GET /templates ────────────────────────────────────────────────────────────
 app.get("/templates", requireApiKey, (req, res) => {
-  const { readdirSync } = await import("fs").catch(() => ({ readdirSync: () => [] }));
   try {
-    const { readdirSync: rds } = await import("fs");
     const dir = join(__dirname, "templates");
     const files = existsSync(dir) ? readdirSync(dir).filter(f => f.endsWith(".docx")) : [];
     res.json({ templates: files.map(f => f.replace(".docx", "")), count: files.length });
