@@ -1,0 +1,23 @@
+{
+  "name": "qlc-docxtemplater-service",
+  "version": "2.1.0",
+  "description": "QualityLinks Compliance — Docxtemplater microservice for Railway",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "docxtemplater": "^3.50.0",
+    "express": "^4.18.3",
+    "node-fetch": "^3.3.2",
+    "pizzip": "^3.1.7"
+  },
+  "keywords": ["docxtemplater", "qualitylinks", "compliance", "railway"],
+  "license": "UNLICENSED",
+  "private": true
+}
